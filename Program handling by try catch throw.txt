@@ -1,0 +1,31 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    try {
+        int a, b;
+        cout << "Enter two integers: ";
+        cin >> a >> b;
+
+        if (b == 0) {
+            throw "Division by zero error!";
+        }
+
+        cout << "Result of division: " << a / b << endl;
+
+        ifstream file("data.txt");
+
+        if (!file) {
+            throw "File not found error!";
+        }
+
+        cout << "File opened successfully." << endl;
+        file.close();
+    }
+    catch (const char* error) {
+        cout << "Exception caught: " << error << endl;
+    }
+system("pause");
+    return 0;
+}
