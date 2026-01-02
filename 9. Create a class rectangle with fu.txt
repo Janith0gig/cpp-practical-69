@@ -1,0 +1,670 @@
+9. Create a class rectangle with functions to calculate the area and perimeter of a 
+rectangle 
+Aim 
+To write a C++ program that defines a Rectangle class with member functions to calculate the 
+area and perimeter of a rectangle. 
+Algorithm 
+1. Define the Rectangle class: 
+o Include private attributes for length and width. 
+o Define a constructor to initialize these attributes. 
+o Provide member functions calculateArea and calculatePerimeter to compute the 
+area and perimeter. 
+2. In the main function: 
+o Create an instance of the Rectangle class. 
+o Call the calculateArea and calculatePerimeter functions. 
+o Display the results. 
+C++ Program 
+#include <iostream> 
+using namespace std; 
+// Class definition 
+class Rectangle { 
+private: 
+double length, width; 
+public: 
+// Constructor to initialize the rectangle 
+Rectangle(double l, double w) { 
+length = l; 
+width = w; 
+} 
+// Function to calculate the area 
+double calculateArea() { 
+return length * width; 
+} 
+// Function to calculate the perimeter 
+double calculatePerimeter() { 
+return 2 * (length + width); 
+} 
+}; 
+int main() { 
+double length, width; 
+// Input length and width from user 
+cout << "Enter the length of the rectangle: "; 
+cin >> length; 
+cout << "Enter the width of the rectangle: "; 
+cin >> width; 
+// Create an object of Rectangle 
+Rectangle rect(length, width); 
+// Calculate and display area and perimeter 
+cout << "Area of the rectangle: " << rect.calculateArea() << endl; 
+cout << "Perimeter of the rectangle: " << rect.calculatePerimeter() << endl; 
+return 0; 
+} 
+Output 
+Input: 
+Enter the length of the rectangle: 5 
+Enter the width of the rectangle: 3 
+Output: 
+Area of the rectangle: 15 
+Perimeter of the rectangle: 16 
+Result 
+The program successfully defines a Rectangle class in C++ and calculates the area and 
+perimeter based on the provided dimensions. 
+10. Create a student class with attributes for student name, roll number, marks in three 
+subjects and write methods to calculate the total, average and grade based on average 
+marks. 
+Requirements: 
+90 above → A Grade 
+80-89 → B Grade 
+65-79 → C Grade 
+50-64 → D Grade 
+Lessthan 50 → FAIL 
+Aim 
+To write a C++ program that defines a Student class with attributes for the student name, roll 
+number, and marks in three subjects. The program calculates the total marks, average marks, 
+and assigns a grade based on the average marks. 
+Algorithm 
+1. Define a Student class with the following private attributes: 
+o Name of the student. 
+o Roll number. 
+o Marks for three subjects. 
+2. Provide methods for: 
+o Inputting details. 
+o Calculating total marks. 
+o Calculating average marks. 
+o Determining the grade based on average marks. 
+3. Implement logic for grade assignment: 
+o 90 and above: Grade A. 
+o 80–89: Grade B. 
+o 65–79: Grade C. 
+o 50–64: Grade D. 
+o Less than 50: FAIL. 
+4. In the main function, create an instance of the Student class and call the methods to 
+calculate and display the results. 
+C++ Program 
+#include <iostream> 
+#include <string> 
+using namespace std; 
+// Student class definition 
+class Student { 
+private: 
+string name; 
+int rollNumber; 
+float marks[3]; // Marks for three subjects 
+public: 
+// Method to input student details 
+void inputDetails() { 
+cout << "Enter student name: "; 
+getline(cin, name); 
+cout << "Enter roll number: "; 
+cin >> rollNumber; 
+cout << "Enter marks for three subjects: "; 
+for (int i = 0; i < 3; i++) { 
+cin >> marks[i]; 
+} 
+} 
+// Method to calculate total marks 
+float calculateTotal() { 
+return marks[0] + marks[1] + marks[2]; 
+} 
+// Method to calculate average marks 
+float calculateAverage() { 
+return calculateTotal() / 3; 
+} 
+// Method to determine grade 
+string determineGrade() { 
+float average = calculateAverage(); 
+if (average >= 90) { 
+return "A"; 
+} else if (average >= 80) { 
+return "B"; 
+} else if (average >= 65) { 
+return "C"; 
+} else if (average >= 50) { 
+return "D"; 
+} else { 
+return "FAIL"; 
+} 
+} 
+// Method to display student details and results 
+void displayResults() { 
+cout << "Student Name: " << name << endl; 
+cout << "Roll Number: " << rollNumber << endl; 
+cout << "Total Marks: " << calculateTotal() << endl; 
+cout << "Average Marks: " << calculateAverage() << endl; 
+cout << "Grade: " << determineGrade() << endl; 
+} 
+}; 
+int main() { 
+Student student; 
+// Input and process student details 
+cout << "Enter student details:\n"; 
+cin.ignore(); // To handle leftover newline character 
+student.inputDetails(); 
+// Display results 
+cout << "\nStudent Results:\n"; 
+student.displayResults(); 
+return 0; 
+} 
+Output 
+Input Data: 
+Enter student details: 
+Enter student name: K. Harshavardhan 
+Enter roll number: 527 
+Enter marks for three subjects: 93  94   95.48 
+Output: 
+Student Results: 
+Student Name: K. Harshavardhan 
+Roll Number: 527 
+Total Marks: 282.48 
+Average Marks: 94.16 
+Grade: B 
+Result 
+Thus the program successfully calculates the total marks, average marks, and assigns a grade 
+based on the specified grading criteria. Finally executed successfully. 
+11. Write a C++ program to create a simple class named Account and write methods to 
+deposit and withdraw amount from the account. 
+Aim 
+To create a simple C++ program that simulates basic bank account operations such as deposit, 
+withdraw, and display account balance using a class named Account. 
+Algorithm 
+1. Define a class Account with: 
+o Private attributes: 
+▪ acc_no: the account number (default: 123). 
+▪ balance: the current account balance. 
+▪ wdraw: to store the withdrawal amount. 
+o Public methods: 
+▪ deposit(int num): checks the account number and allows depositing 
+money. 
+▪ withdraw(int num): checks the account number and allows 
+withdrawing money. 
+▪ display(int num): checks the account number and displays the current 
+balance after withdrawal. 
+2. In the main() function: 
+o Create an object of the Account class. 
+o Input the account number from the user. 
+o Call the deposit, display, and withdraw methods to perform account 
+operations. 
+3. Display appropriate messages for incorrect account numbers. 
+C++ Program 
+#include <iostream> 
+using namespace std; 
+class Account { 
+int acc_no;   // Account number 
+int balance;  // Current balance 
+int wdraw;    
+// Withdrawal amount 
+public: 
+// Constructor to initialize values 
+Account() { 
+acc_no = 123; 
+balance = 0; 
+wdraw = 0; 
+} 
+    // Method to deposit money 
+    void deposit(int num) { 
+        if (num == acc_no) { 
+            cout << "\nI am depositing money..."; 
+            cout << "\nEnter the amount you want to deposit: "; 
+            cin >> balance; 
+        } else { 
+            cout << "\nIncorrect account number."; 
+        } 
+    } 
+ 
+    // Method to display balance 
+    void display(int num) { 
+        if (num == acc_no) { 
+            cout << "\nThe current balance of your Account is: " << balance - wdraw; 
+        } else { 
+            cout << "\nIncorrect account number."; 
+        } 
+    } 
+ 
+    // Method to withdraw money 
+    void withdraw(int num) { 
+        if (num == acc_no) { 
+            cout << "\nI am withdrawing money..."; 
+            cout << "\nEnter the amount to withdraw: "; 
+            cin >> wdraw; 
+ 
+            if (wdraw <= balance) { 
+                cout << "\nTransaction was successful"; 
+            } else { 
+                cout << "\nInsufficient funds. Transaction denied."; 
+                wdraw = 0;  // Reset withdrawal to 0 in case of insufficient funds 
+            } 
+        } else { 
+            cout << "\nIncorrect account number."; 
+        } 
+    } 
+}; 
+ 
+int main() { 
+    Account acc; // Create an object of the Account class 
+    int num; 
+ 
+    cout << "\nEnter the account number: "; 
+cin >> num; 
+acc.deposit(num);  // Deposit money 
+acc.display(num);  // Display current balance 
+acc.withdraw(num); // Withdraw money 
+acc.display(num);  // Display balance after withdrawal 
+cout << endl; 
+return 0; 
+} 
+Input and Output 
+Input: 
+Enter the account number: 123 
+I am depositing money... 
+Enter the amount you want to deposit: 1000 
+The current balance of your Account is: 1000 
+I am withdrawing money... 
+Enter the amount to withdraw: 500 
+Transaction was successful 
+The current balance of your Account is: 500 
+Incorrect Account Number Example: 
+Enter the account number: 456 
+Incorrect account number. 
+Result 
+Thus, the program successfully implements the following functionalities of Verifies the account 
+number before performing any transaction, Allows the user to deposit money, Enables 
+withdrawal of money if sufficient balance is available, and Displays the updated account 
+balance after transactions has been executed successfully. 
+12. Create a base class shape with derived classes like Circle, rectangle and triangle. Use 
+polymorphism to calculate area and perimeter for each shape. 
+Aim 
+To create a C++ program that implements polymorphism to calculate the area and perimeter of 
+shapes (Circle, Rectangle, Triangle) at runtime by dynamically accepting input values. 
+Algorithm 
+1. Define a Base Class Shape: 
+o Include pure virtual functions calculateArea() and calculatePerimeter() for 
+polymorphism. 
+o Include a getInput() function to accept values for each shape at runtime. 
+2. Define Derived Classes: 
+o Circle, Rectangle, and Triangle inherit from Shape. 
+o Implement the getInput(), calculateArea(), and calculatePerimeter() methods. 
+3. Main Function: 
+o Use an array of pointers of type Shape to manage objects of derived classes. 
+o Dynamically allocate memory for each shape, accept input values, and calculate 
+area and perimeter at runtime. 
+4. Input Validation: 
+o Ensure correct inputs are provided for triangle dimensions (e.g., the sum of two 
+sides must be greater than the third side). 
+C++ Program 
+#include <iostream> 
+#include <cmath> // For sqrt and M_PI 
+using namespace std; 
+// Base class 
+class Shape { 
+public: 
+virtual void getInput() = 0;           
+virtual void calculateArea() = 0;     
+// Pure virtual function to get input 
+// Pure virtual function for area 
+virtual void calculatePerimeter() = 0; // Pure virtual function for perimeter 
+virtual ~Shape() {}                   
+// Virtual destructor 
+}; 
+// Derived class: Circle 
+class Circle : public Shape { 
+private: 
+double radius; 
+public: 
+void getInput() override { 
+cout << "Enter radius of the circle: "; 
+cin >> radius; 
+} 
+void calculateArea() override { 
+cout << "Circle Area: " << M_PI * radius * radius << endl; 
+} 
+void calculatePerimeter() override { 
+cout << "Circle Perimeter: " << 2 * M_PI * radius << endl; 
+} 
+}; 
+// Derived class: Rectangle 
+class Rectangle : public Shape { 
+private: 
+double length, width; 
+public: 
+void getInput() override { 
+cout << "Enter length and width of the rectangle: "; 
+cin >> length >> width; 
+} 
+void calculateArea() override { 
+cout << "Rectangle Area: " << length * width << endl; 
+} 
+void calculatePerimeter() override { 
+cout << "Rectangle Perimeter: " << 2 * (length + width) << endl; 
+} 
+}; 
+// Derived class: Triangle 
+class Triangle : public Shape { 
+private: 
+double a, b, c; // Sides of the triangle 
+public: 
+void getInput() override { 
+do { 
+cout << "Enter the three sides of the triangle: "; 
+cin >> a >> b >> c; 
+if (a + b > c && b + c > a && c + a > b) { 
+                break; 
+            } else { 
+                cout << "Invalid sides for a triangle. Please re-enter." << endl; 
+            } 
+        } while (true); 
+    } 
+ 
+    void calculateArea() override { 
+        double s = (a + b + c) / 2; // Semi-perimeter 
+        cout << "Triangle Area: " << sqrt(s * (s - a) * (s - b) * (s - c)) << endl; 
+    } 
+ 
+    void calculatePerimeter() override { 
+        cout << "Triangle Perimeter: " << (a + b + c) << endl; 
+    } 
+}; 
+ 
+int main() { 
+    int choice; 
+    Shape* shape = nullptr; 
+ 
+    cout << "Choose a shape to calculate area and perimeter:" << endl; 
+    cout << "1. Circle" << endl; 
+    cout << "2. Rectangle" << endl; 
+    cout << "3. Triangle" << endl; 
+    cout << "Enter your choice: "; 
+    cin >> choice; 
+ 
+    switch (choice) { 
+    case 1: 
+        shape = new Circle(); 
+        break; 
+    case 2: 
+        shape = new Rectangle(); 
+        break; 
+    case 3: 
+        shape = new Triangle(); 
+        break; 
+    default: 
+        cout << "Invalid choice!" << endl; 
+        return 0; 
+    } 
+ 
+    // Get input and perform calculations 
+shape->getInput(); 
+shape->calculateArea(); 
+shape->calculatePerimeter(); 
+// Free dynamically allocated memory 
+delete shape; 
+return 0; 
+} 
+Output 
+Input for Circle: 
+Choose a shape to calculate area and perimeter: 
+1. Circle 
+2. Rectangle 
+3. Triangle 
+Enter your choice: 1 
+Enter radius of the circle: 5 
+Circle Area: 78.5398 
+Circle Perimeter: 31.4159 
+Input for Triangle: 
+Choose a shape to calculate area and perimeter: 
+1. Circle 
+2. Rectangle 
+3. Triangle 
+Enter your choice: 3 
+Enter the three sides of the triangle: 3 4 5 
+Triangle Area: 6 
+Triangle Perimeter: 12 
+Result 
+Thus the program dynamically calculates the area and perimeter of different shapes using 
+polymorphism has been executed successfully. 
+13.  Write a C++ program to accept and display the details of an employee using a class. 
+Aim 
+To create a C++ program that accepts and displays the details of an employee using a class. 
+Algorithm 
+1. Define a class Employee: 
+o Include private attributes for: 
+▪ empID (Employee ID). 
+▪ name (Employee Name). 
+▪ designation (Job Title). 
+▪ salary (Employee Salary). 
+o Include public methods to: 
+▪ Accept employee details (getDetails()). 
+▪ Display employee details (displayDetails()). 
+2. Main Function: 
+o Create an object of the Employee class. 
+o Call getDetails() to input the employee details. 
+o Call displayDetails() to output the employee details. 
+C++ Program 
+#include <iostream> 
+#include <string> 
+using namespace std; 
+// Employee class definition 
+class Employee { 
+private: 
+int empID; 
+string name; 
+string designation; 
+double salary; 
+public: 
+// Method to accept employee details 
+void getDetails() { 
+cout << "Enter Employee ID: "; 
+cin >> empID; 
+cin.ignore(); // Clear newline character left by cin 
+cout << "Enter Employee Name: "; 
+getline(cin, name); 
+cout << "Enter Employee Designation: "; 
+getline(cin, designation); 
+cout << "Enter Employee Salary: "; 
+cin >> salary; 
+} 
+// Method to display employee details 
+void displayDetails() const { 
+cout << "\nEmployee Details:" << endl; 
+cout << "Employee ID: " << empID << endl; 
+cout << "Employee Name: " << name << endl; 
+cout << "Designation: " << designation << endl; 
+cout << "Salary: " << salary << endl; 
+} 
+}; 
+// Main function 
+int main() { 
+Employee emp; // Create an Employee object 
+cout << "Enter the details of the employee:\n"; 
+emp.getDetails(); // Input employee details 
+cout << "\nDisplaying the details of the employee:\n"; 
+emp.displayDetails(); // Output employee details 
+return 0; 
+} 
+Sample Output 
+Input: 
+Enter the details of the employee: 
+Enter Employee ID: 101 
+Enter Employee Name: K. Harshavardhan 
+Enter Employee Designation: Security Engineer 
+Enter Employee Salary: 175000 
+Output: 
+Displaying the details of the employee: 
+Employee ID: 101 
+Employee Name: K. Harshavardhan 
+Designation: Security Engineer 
+Salary: 175000 
+Result 
+The program for implementing the employee details has been executed successfully.: 
+14. Write a C++ program to add two numbers using single inheritance. Accepts these two 
+numbers from the user in base class and display the sum of these two numbers in derived 
+class. 
+Aim 
+To create a C++ program that adds two numbers using single inheritance. The base class accepts 
+two numbers from the user, and the derived class computes and displays their sum. 
+Algorithm 
+1. Define a Base Class: 
+o Include private attributes for the two numbers. 
+o Provide a public method to accept the numbers from the user. 
+o Include getter methods to access the numbers from the derived class. 
+2. Define a Derived Class: 
+o Inherit from the base class using single inheritance. 
+o Provide a public method to compute and display the sum of the two numbers 
+using the getter methods of the base class. 
+3. Main Function: 
+o Create an object of the derived class. 
+o Call the method in the base class to accept input. 
+o Call the method in the derived class to compute and display the sum. 
+C++ Program 
+#include <iostream> 
+using namespace std; 
+// Base class 
+class Base { 
+private: 
+int num1, num2; // Two numbers to be added 
+public: 
+// Method to accept two numbers 
+void acceptNumbers() { 
+cout << "Enter the first number: "; 
+cin >> num1; 
+cout << "Enter the second number: "; 
+cin >> num2; 
+} 
+// Getter methods to access numbers 
+int getNum1() const { 
+return num1; 
+} 
+int getNum2() const { 
+return num2; 
+} 
+}; 
+// Derived class 
+class Derived : public Base { 
+public: 
+// Method to calculate and display the sum 
+void displaySum() { 
+int sum = getNum1() + getNum2(); // Access numbers using base class methods 
+cout << "The sum of the two numbers is: " << sum << endl; 
+} 
+}; 
+// Main function 
+int main() { 
+Derived obj; // Create an object of the derived class 
+// Accept input and display the result 
+obj.acceptNumbers(); 
+obj.displaySum(); 
+return 0; 
+} 
+Output 
+Input: 
+Enter the first number: 10 
+Enter the second number: 20 
+Output: 
+The sum of the two numbers is: 30 
+Result 
+Thus the program demonstrates of single inheritance has been executed successfully. 
+15. write a C++ program to create a Book class with appropriate constructors and 
+methods to display the price, author(s), and ISBN number of a book. 
+Aim 
+To write a C++ program that creates a Book class with appropriate constructors and methods 
+to input and display the price, author(s), and ISBN number of a book at runtime. 
+Algorithm 
+1. Define the Book Class: 
+o Include private attributes: 
+▪ price (Price of the book). 
+▪ authors (Array or vector of author names). 
+▪ isbn (ISBN number of the book). 
+o Define a parameterized constructor to initialize the attributes with user input. 
+o Define methods to: 
+▪ Display the price of the book (displayPrice()). 
+▪ Display the names of the authors (displayAuthors()). 
+▪ Display the ISBN number of the book (displayISBN()). 
+2. Main Function: 
+o Accept details such as price, authors, and ISBN from the user. 
+o Create an object of the Book class using the constructor. 
+o Call the methods to display the book details. 
+C++ Program 
+#include <iostream> 
+#include <vector> 
+#include <string> 
+using namespace std; 
+// Book class definition 
+class Book { 
+private: 
+double price;              
+// Price of the book 
+vector<string> authors;    // List of authors 
+string isbn;               
+// ISBN number 
+public: 
+// Constructor to initialize the book details 
+Book(double p, vector<string> a, string i) : price(p), authors(a), isbn(i) {} 
+// Method to display price 
+void displayPrice() const { 
+cout << "Price of the Book: $" << price << endl; 
+} 
+// Method to display author names 
+void displayAuthors() const { 
+cout << "Author(s) of the Book: "; 
+for (const string& author : authors) { 
+cout << author << " "; 
+} 
+cout << endl; 
+} 
+// Method to display ISBN number 
+void displayISBN() const { 
+cout << "ISBN Number of the Book: " << isbn << endl; 
+} 
+}; 
+int main() { 
+double price; 
+int numAuthors; 
+vector<string> authors; 
+string isbn, authorName; 
+// Input book details at runtime 
+cout << "Enter the price of the book: "; 
+cin >> price; 
+cin.ignore(); // To clear newline character from input buffer 
+cout << "Enter the ISBN number of the book: "; 
+getline(cin, isbn); 
+cout << "Enter the number of authors: "; 
+cin >> numAuthors; 
+cin.ignore(); // To clear newline character from input buffer 
+cout << "Enter the names of the authors:" << endl; 
+for (int i = 0; i < numAuthors; i++) { 
+cout << "Author " << (i + 1) << ": "; 
+getline(cin, authorName); 
+authors.push_back(authorName); 
+} 
+// Create a Book object 
+Book myBook(price, authors, isbn); 
+// Display the book details 
+cout << "\nBook Details:" << endl; 
+myBook.displayPrice(); 
+myBook.displayAuthors(); 
+myBook.displayISBN(); 
+return 0; 
+} 
+Sample Input 
+Enter the price of the book: 49.99 
+Enter the ISBN number of the book: 978-3-16-148410-0 
+Enter the number of authors: 2 
+Enter the names of the authors: 
+Author 1: Harshavardhan  
+Author 2: Jane Smith 
+Sample Output 
+Book Details: 
+Price of the Book: $49.99 
+Author(s) of the Book: Harshavardhan  Jane Smith  
+ISBN Number of the Book: 978-3-16-148410-0 
+Result 
+Thus the program for inputs book details such as price, authors, and ISBN number at runtime 
+has been executed successfully.
